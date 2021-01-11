@@ -1,5 +1,6 @@
 from django.urls import path
 
+from manager.oauth_views import complete_github_view
 from manager.views import MyPage, AddCommentLike, BookDetail, AddRate2Book, AddBook, LoginView, \
     logout_user, AddComment, book_delete, UpdateBook, comment_delete, UpdateComment,  RegisterView
 
@@ -18,7 +19,6 @@ urlpatterns = [
     path("login/", LoginView.as_view(), name="login"),
     path("logout/", logout_user, name="logout"),
     path("register/", RegisterView.as_view(), name='register'),
-    # path(r'^article/(?P<pk>[0-9]+)/$', DetailView.as_view(context_object_name="article", model=Article,
-    #                                                       template_name="article.html"), name='article-detail'),
+    path("complete/", complete_github_view, name='complete_github'),
     path("", MyPage.as_view(), name="the-main-page"),
 ]
