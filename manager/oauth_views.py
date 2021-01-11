@@ -7,7 +7,6 @@ def complete_github_view(request):
     url = f"https://github.com/login/oauth/authorize?client_id={GIT_CLIENT_ID}"
     return render(request, "complete.html", {"url": url})
 
-
 def complete_github_callback(request):
     code = request.GET.get("code")
     url = f"https://github.com/login/oauth/access_token?client_id={GIT_CLIENT_ID}&" \
