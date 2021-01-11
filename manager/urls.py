@@ -1,8 +1,8 @@
 from django.urls import path
-
 from manager.oauth_views import complete_github_view, complete_github_callback
 from manager.views import MyPage, AddCommentLike, BookDetail, AddRate2Book, AddBook, LoginView, \
     logout_user, AddComment, book_delete, UpdateBook, comment_delete, UpdateComment,  RegisterView
+
 
 urlpatterns = [
     path('add_like_comment/<int:id>', AddCommentLike.as_view(), name="add-like-comment"),
@@ -24,3 +24,5 @@ urlpatterns = [
     path("complete/", complete_github_view, name='complete_github'),
     path("", MyPage.as_view(), name="the-main-page"),
 ]
+
+
