@@ -25,6 +25,7 @@ class MyPage(View):
         context['form'] = BookForm()
         return render(request, "index.html", context)
 
+
 class LoginView(View):
     def get(self, request):
         return render(request, "login.html", {'form': CustomAuthenticationForm()})
