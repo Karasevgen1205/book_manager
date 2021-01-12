@@ -82,15 +82,14 @@ class AddRate2Book(View):
         return redirect('book-detail', slug=slug)
 
 
-# author, author_id, book, book_id, date, id, liked_comm_user_table, likes, likes_com, text
 class BookDetail(View):
     def get(self, request, slug):
 
         comment_query = Comment.objects.annotate(count_like=Count("likes_com")).select_related("author")
         if request.user.is_authenticated:
-            is_owner = Exists(User.objects.filter(comment =OuterRef("id"), id = request.user.id))
-            is_liked = Exists(LikeComment.objects.filter(comment_id =OuterRef("id"), user_id = request.user.id))
-            comment_query = comment_query.annotate(is_owner = is_owner, is_liked=is_liked)
+            is_owner = Exists(User.objects.filter(comment=OuterRef("id"), id=request.user.id))
+            is_liked = Exists(LikeComment.objects.filter(comment_id=OuterRef("id"), user_id=request.user.id))
+            comment_query = comment_query.annotate(is_owner=is_owner, is_liked=is_liked)
         comments = Prefetch("comments", comment_query)
         book = Book.objects.prefetch_related("authors", comments).get(slug=slug)
 
