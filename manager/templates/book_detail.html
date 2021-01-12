@@ -18,6 +18,7 @@
 {% for a in book.authors.all %}
     <h6><i>{{ a }}</i></h6>
 {% endfor %}
+
 <span class="badge">{{ book.rate }}</span>
 {% for i in rate %}
     {% if book.rate >= i %}

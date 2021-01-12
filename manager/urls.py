@@ -2,6 +2,8 @@ from django.urls import path
 from manager.oauth_views import complete_github_view, complete_github_callback
 from manager.views import MyPage, AddCommentLike, BookDetail, AddRate2Book, AddBook, LoginView, \
     logout_user, AddComment, book_delete, UpdateBook, comment_delete, UpdateComment,  RegisterView
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -23,6 +25,6 @@ urlpatterns = [
     path("complete/github/", complete_github_callback, name="complete_callback"),
     path("complete/", complete_github_view, name='complete_github'),
     path("", MyPage.as_view(), name="the-main-page"),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
