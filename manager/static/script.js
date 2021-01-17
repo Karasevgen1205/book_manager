@@ -9,7 +9,7 @@ $('document').ready(function () {
             data: {"comment_id": id.split('-')[1]},
             method: "GET",
             success: function (data) {
-                console.log("we got server", data)
+                $("#" + id).html('Likes: ' + data['likes']);
             }
         })
 
