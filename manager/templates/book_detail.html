@@ -35,7 +35,7 @@
     <h3><i>{{ comment.author }}</i></h3><h6><i>{{ comment.date }}</i></h6>
     <h4 style="background-color:Grey;"><i>{{ comment.text }}</i></h4>
 <!--    <a href="{% url 'add-like-comment-location' id=comment.id location=2 %}">-->
-        <h5 class="like-comment">&#128151 {{ comment.likes }}</h5>
+        <h5 class="like-comment" id="comment-{{ comment.id }}">Likes: &#128151 {{ comment.likes }}</h5>
 <!--    </a>-->
     {% if comment.is_liked %}
         <h6><font color="red">Вам понравился этот комментарий</font></h6>
