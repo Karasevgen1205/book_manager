@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from requests import post, get
 from book_shop.settings import GIT_CLIENT_ID, GIT_CLIENT_SECRET
+from manager.models import AccountUser
 
 
 def complete_github_view(request):
@@ -20,4 +21,8 @@ def complete_github_callback(request):
     url = f"https://api.github.com/users/{login}/repos"
     response = get(url)
     repos = [i['name'] for i in response.json()]
+    if request.user.is_authenticated:
+        au = AccountUser(user=request.user, github_account=login)
+        au.github_repos = repos
+        au.save()
     return render(request, "complete.html", {'data': repos})
