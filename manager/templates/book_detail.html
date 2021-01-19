@@ -3,17 +3,19 @@
 
 {% block detail %}
 {% load static %}
-<a href="{% url 'the-main-page' %}"><h5>Вернуться на главную</h5></a>
-<h1>{{ book.title }}</h1>
-<h6><i>{{ book.date }}</i></h6>
-<h2>{{ book.text }}</h2>
+
 
 {% if book.img %}
     <img src="{{ book.img.url }}" width="150" height="200">
 {% else %}
     <p></p>
 {% endif %}
+<br>
 
+<a href="{% url 'the-main-page' %}"><h5>Вернуться на главную</h5></a>
+<h1>{{ book.title }}</h1>
+<h6><i>{{ book.date }}</i></h6>
+<h2>{{ book.text }}</h2>
 
 {% for a in book.authors.all %}
     <h6><i>{{ a }}</i></h6>
