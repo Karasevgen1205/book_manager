@@ -44,22 +44,28 @@
 <br>
 
 {% if books.has_previous %}
-<a href="{% url 'the-main-page' %}?page={{ books.previous_page_number }}">previous</a>
+    <a href="{% url 'the-main-page' %}?page={{ books.previous_page_number }}">
+        previous
+    </a>
 {% endif %}
+
 {% if books.has_next %}
-<a href="{% url 'the-main-page' %}?page={{ books.next_page_number }}">next</a>
+    <a href="{% url 'the-main-page' %}?page={{ books.next_page_number }}">
+        next
+    </a>
 {% endif %}
 
 <br>
 <br>
 <br>
-<h4>Добавьте Вашу книгу</h4>
+<h4>Добавьте книгу</h4>
 {% if user.is_authenticated %}
-<form action="{% url 'add-book' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Сохранить">
-</form>
+    <form action="{% url 'add-book' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Сохранить">
+    </form>
 {% endif %}
+
 {% endblock %}
 
