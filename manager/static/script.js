@@ -22,4 +22,17 @@ $('document').ready(function () {
             }
         })
     })
+
+    $('.delete-book').on('click', function () {
+        let id=$(this).attr('id');
+        $.ajax({
+            url: "/shop/delete_book_ajax",
+            data: {"book_id": id.split("-")[2]},
+            method: "GET",
+            success: function (data) {
+                $(`#${id}`).remove()
+            }
+        })
+    })
+
 });
