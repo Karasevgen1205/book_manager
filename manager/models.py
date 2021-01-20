@@ -7,11 +7,7 @@ from slugify import slugify
 
 
 class Book(models.Model):
-    title = models.CharField(
-        max_length=50,
-        verbose_name='Название',
-        help_text='ну это типа имя книги'
-    )
+    title = models.CharField(max_length=50, verbose_name='Название', help_text='ну это типа имя книги')
     date = models.DateTimeField(auto_now_add=True, null=True)
     text = models.TextField(max_length=1000, null=True, verbose_name='Описание')
     authors = models.ManyToManyField(User, related_name="books")
@@ -42,7 +38,6 @@ class LikeBookUser(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="liked_user_table", null=True)
     rate = models.PositiveIntegerField(default=5)
 
-
     def save(self, **kwargs):
         try:
             super().save(**kwargs)
@@ -58,7 +53,6 @@ class LikeBookUser(models.Model):
         self.book.save()
 
 
-
 class Comment(models.Model):
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
@@ -66,7 +60,6 @@ class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     likes = models.PositiveIntegerField(default=0)
     likes_com = models.ManyToManyField(User, through="manager.LikeComment", related_name="liked_comments")
-
 
 
 class LikeComment(models.Model):

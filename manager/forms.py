@@ -24,6 +24,8 @@ class BookForm(ModelForm):
             "title": "",
             "text": ""
         }
+
+
 class CommentForm(ModelForm):
     class Meta:
         model = Comment

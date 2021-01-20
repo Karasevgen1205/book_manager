@@ -7,6 +7,7 @@ class CommentAdmin(admin.StackedInline):
     model = Comment
     extra = 2
 
+
 class BookAdmin(admin.ModelAdmin):
     inlines = [CommentAdmin]
     readonly_fields = ['rate']

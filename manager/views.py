@@ -14,7 +14,6 @@ from django.contrib.auth.forms import AuthenticationForm
 class MyPage(View):
     def get(self, request):
         context = {}
-
         books = Book.objects.prefetch_related("authors")
         if request.user.is_authenticated:
             is_owner = Exists(User.objects.filter(books =OuterRef("pk"), id = request.user.id))
@@ -84,7 +83,6 @@ class AddRate2Book(View):
 
 class BookDetail(View):
     def get(self, request, slug):
-
         comment_query = Comment.objects.annotate(count_like=Count("likes_com")).select_related("author")
         if request.user.is_authenticated:
             is_owner = Exists(User.objects.filter(comment=OuterRef("id"), id=request.user.id))

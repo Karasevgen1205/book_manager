@@ -2,6 +2,7 @@ from celery import shared_task
 from requests import get
 from manager.models import AccountUser
 
+
 @shared_task
 def check_users():
     git_hub_users = AccountUser.objects.all()
