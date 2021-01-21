@@ -12,6 +12,8 @@ class ArticleAdmin(admin.ModelAdmin):
     #readonly_fields = ['rate']
     #exclude = ['count_all_stars', 'count_rated_users']
     # prepopulated_fields = {'slug' : 'title'}
-    admin.site.register(Article, ArticleAdmin)
+
+
+admin.site.register(Article, ArticleAdmin)
 
 # Register your models here.
