@@ -11,6 +11,12 @@ class Article(models.Model):
     def __sty__(self):
         return self.article_title
 
+    def was_published_recently(self):
+        return self.pub_date >= (timezone.now() - datetime.timezone(days=7))
+
+    class Meta:
+        verbose_name = 'Статья'
+        verbose_name_plural = 'Статьи'
 
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
@@ -22,6 +28,10 @@ class Comment(models.Model):
 
     def was_published_recently(self):
         return self.pub_date >= (timezone.now() - datetime.timezone(days=7))
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
 
 class Comment4comment(models.Model):
     article = models.ForeignKey(Comment, on_delete=models.CASCADE)
