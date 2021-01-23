@@ -49,4 +49,4 @@ def delete_book(request):
 class DeleteComment(DestroyAPIView):
     serializer_class = CommentSerializer
     lookup_field = 'comment_id'
-
+    queryset = Comment.objects.all()
