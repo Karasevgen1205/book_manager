@@ -2,8 +2,10 @@ from django.http import HttpResponse, JsonResponse
 from requests import Response
 from rest_framework import status
 from rest_framework.views import APIView
-
 from manager.models import LikeComment, Comment, Book
+from rest_framework.generics import DestroyAPIView
+
+from manager.serializers import CommentSerializer
 
 
 def add_like2comment(request, comment_id):
@@ -32,16 +34,19 @@ def delete_book(request):
         return JsonResponse({}, status=status.HTTP_403_FORBIDDEN)
     return JsonResponse({}, status=status.HTTP_401_UNAUTHORIZED)
 
+#
+# class DeleteComment(APIView):
+#     def delete(self, request, comment_id):
+#         if request.user.is_authenticated:
+#             comment = Comment.objects.get(id=request.GET.get("comment_id"))
+#             if request.user == comment.author:
+#                 comment.delete()
+#                 return Response({}, status=status.HTTP_204_NO_CONTENT)
+#             return Response({}, status=status.HTTP_403_FORBIDDEN)
+#         return Response({}, status=status.HTTP_401_UNAUTHORIZED)
 
-class DeleteComment(APIView):
-    def delete(self, request, comment_id):
-        if request.user.is_authenticated:
-            comment = Comment.objects.get(id=request.GET.get("comment_id"))
-            if request.user == comment.author:
-                comment.delete()
-                return Response({}, status=status.HTTP_204_NO_CONTENT)
-            return Response({}, status=status.HTTP_403_FORBIDDEN)
-        return Response({}, status=status.HTTP_401_UNAUTHORIZED)
 
-
+class DeleteComment(DestroyAPIView):
+    serializer_class = CommentSerializer
+    lookup_field = 'comment_id'
 
