@@ -6,6 +6,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from manager.models import LikeComment, Comment, Book
 from rest_framework.generics import DestroyAPIView
+
+from manager.permissions import IsAuthor
 from manager.serializers import CommentSerializer
 
 
@@ -49,7 +51,7 @@ def delete_book(request):
 
 class DeleteComment(DestroyAPIView):
     authentication_classes = [SessionAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsAuthor]
     serializer_class = CommentSerializer
     #lookup_field = 'comment_id'
     queryset = Comment.objects.all()
