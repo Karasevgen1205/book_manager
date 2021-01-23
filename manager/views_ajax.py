@@ -1,7 +1,7 @@
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from manager.models import LikeComment, Comment, Book
-from rest_framework.generics import DestroyAPIView, RetrieveUpdateAPIView, CreateAPIView
+from rest_framework.generics import DestroyAPIView, RetrieveUpdateAPIView, CreateAPIView, ListCreateAPIView
 from manager.permissions import IsAuthor
 from manager.serializers import CommentSerializer, LikeCommentUserSerializer, BookSerializer
 
@@ -28,3 +28,4 @@ class CreateBook(CreateAPIView):
     authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = BookSerializer
+    queryset = Book.object.all()

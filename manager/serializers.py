@@ -15,6 +15,7 @@ class LikeCommentUserSerializer(ModelSerializer):
 
 
 class BookSerializer(ModelSerializer):
+#    data = serializer
     class Meta:
         model = Book
         fields = ["title", "text"]
