@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from manager.models import Comment, LikeComment
+from manager.models import Comment, LikeComment, Book
 
 
 class CommentSerializer(ModelSerializer):
@@ -8,7 +8,13 @@ class CommentSerializer(ModelSerializer):
         fields = "__all__"
 
 
-class LikeCommentUserSerialize(ModelSerializer):
+class LikeCommentUserSerializer(ModelSerializer):
     class Meta:
         model = LikeComment
         fields = "__all__"
+
+
+class BookSerializer(ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ["title", "text"]
