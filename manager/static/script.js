@@ -1,10 +1,10 @@
 $('document').ready(function () {
     $('.like-comment').on('click', function () {
         let id=$(this).attr('id');
+        let current_id = id.split('-')[1]
         $.ajax({
             url:"/shop/add_like2comment_ajax",
-            data: {"comment_id": id.split('-')[1]},
-            method: "GET",
+            method: "POST",
             success: function (data) {
                 $(`#${id}`).html(`Likes: ${data['likes']}`);
             }
