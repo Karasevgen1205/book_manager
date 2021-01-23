@@ -5,19 +5,29 @@ from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from manager.models import LikeComment, Comment, Book
-from rest_framework.generics import DestroyAPIView
-
+from rest_framework.generics import DestroyAPIView, RetrieveUpdateAPIView
 from manager.permissions import IsAuthor
 from manager.serializers import CommentSerializer
 
+#
+# def add_like2comment(request, comment_id):
+#     if request.user.is_authenticated:
+#         LikeComment.objects.create(user=request.user, comment_id=comment_id)
+#         comment = Comment.objects.get(id=comment_id)
+#         count_likes = comment.users_like.count()
+#         return JsonResponse({"likes": count_likes}, status=status.HTTP_201_CREATED)
+#     return JsonResponse({"error": "User is not authenticated"}, status=status.HTTP_401_UNAUTHORIZED)
 
-def add_like2comment(request, comment_id):
-    if request.user.is_authenticated:
-        LikeComment.objects.create(user=request.user, comment_id=comment_id)
-        comment = Comment.objects.get(id=comment_id)
-        count_likes = comment.users_like.count()
-        return JsonResponse({"likes": count_likes}, status=status.HTTP_201_CREATED)
-    return JsonResponse({"error": "User is not authenticated"}, status=status.HTTP_401_UNAUTHORIZED)
+
+class AddLikeComment(RetrieveUpdateAPIView):
+    serializer_class = CommentSerializer
+
+    def put(self, request, *args, **kwargs):
+        pass
+
+    def get(self, request, *args, **kwargs):
+        pass
+
 
 def delete_comment(request):
     if request.user.is_authenticated:

@@ -4,7 +4,7 @@ from manager.views import MyPage, AddCommentLike, BookDetail, AddRate2Book, AddB
     logout_user, AddComment, book_delete, UpdateBook, comment_delete, UpdateComment,  RegisterView
 from django.conf import settings
 from django.conf.urls.static import static
-from manager.views_ajax import add_like2comment, delete_comment, delete_book, DeleteComment
+from manager.views_ajax import add_like2comment, delete_comment, delete_book, DeleteComment, AddLikeComment
 
 urlpatterns = [
     path('add_like_comment/<int:id>', AddCommentLike.as_view(), name="add-like-comment"),
@@ -24,7 +24,7 @@ urlpatterns = [
     path("complete/", complete_github_view, name='complete_github'),
     path("complete/github/", complete_github_callback, name="complete_callback"),
     path("complete/", complete_github_view, name='complete_github'),
-    path("add_like2comment_ajax/<int:commnet_id>", add_like2comment),
+    path("AddLikeComment/<int:commnet_id>", AddLikeComment.as_view()),
     path("delete_comment_ajax/<int:pk>", DeleteComment.as_view()),
     path("delete_book_ajax/", delete_book),
     path("", MyPage.as_view(), name="the-main-page"),
