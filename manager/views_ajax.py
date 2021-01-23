@@ -4,7 +4,6 @@ from rest_framework import status
 from rest_framework.views import APIView
 from manager.models import LikeComment, Comment, Book
 from rest_framework.generics import DestroyAPIView
-
 from manager.serializers import CommentSerializer
 
 
