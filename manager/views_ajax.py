@@ -1,6 +1,8 @@
 from django.http import HttpResponse, JsonResponse
 from requests import Response
 from rest_framework import status
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from manager.models import LikeComment, Comment, Book
 from rest_framework.generics import DestroyAPIView
@@ -46,6 +48,8 @@ def delete_book(request):
 
 
 class DeleteComment(DestroyAPIView):
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = CommentSerializer
     #lookup_field = 'comment_id'
     queryset = Comment.objects.all()
