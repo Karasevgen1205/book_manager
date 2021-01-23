@@ -18,10 +18,11 @@ class Article(models.Model):
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
 
+
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     author_name = models.CharField('Имя автора', max_length=50)
-    comment_text = models.TextField('Текст комментария', max_length= 200)
+    comment_text = models.TextField('Текст комментария', max_length=200)
 
     def __sty__(self):
         return self.author_name
@@ -32,6 +33,7 @@ class Comment(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
 
 class Comment4comment(models.Model):
     article = models.ForeignKey(Comment, on_delete=models.CASCADE)
