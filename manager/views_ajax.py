@@ -3,9 +3,8 @@ from rest_framework import status
 from manager.models import LikeComment, Comment, Book
 
 
-def add_like2comment(request):
+def add_like2comment(request, comment_id):
     if request.user.is_authenticated:
-        comment_id = request.GET.get('comment_id')
         LikeComment.objects.create(user=request.user, comment_id=comment_id)
         comment = Comment.objects.get(id=comment_id)
         count_likes = comment.users_like.count()

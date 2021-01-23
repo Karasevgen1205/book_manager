@@ -24,7 +24,7 @@ urlpatterns = [
     path("complete/", complete_github_view, name='complete_github'),
     path("complete/github/", complete_github_callback, name="complete_callback"),
     path("complete/", complete_github_view, name='complete_github'),
-    path("add_like2comment_ajax/", add_like2comment),
+    path("add_like2comment_ajax/<int:commnet_id>", add_like2comment),
     path("delete_comment_ajax/", delete_comment),
     path("delete_book_ajax/", delete_book),
     path("", MyPage.as_view(), name="the-main-page"),
