@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.urls import reverse
 from slugify import slugify
 from manager.models import Book
+from rest_framework.test import APITestCase
 
 
 class TestMyAppPlease(TestCase):
@@ -104,3 +105,11 @@ class TestMyAppPlease(TestCase):
         self.client.logout()
         self.client.get(url)
         self.assertEqual(Book.objects.count(), 1)
+
+
+class RestTest(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(name='test_name')
+
+    def test_create_token(self):
+        pass
