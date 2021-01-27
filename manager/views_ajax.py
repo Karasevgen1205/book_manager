@@ -23,9 +23,14 @@ class DeleteComment(DestroyAPIView):
     queryset = Comment.objects.all()
 
 
-
 class CreateBook(CreateAPIView):
     authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = BookSerializer
     queryset = Book.object.all()
+
+
+class CreateToken(CreateAPIView):
+    def post(self, request):
+        login = request.data.get('login')
+        pwd = request.data.get('pwd')

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'manager',
     'articles',
     'rest_framework',
+    'rest_framework.authtoken',
     # 'users',
     # 'oauth2_provider',
     'debug_toolbar',
