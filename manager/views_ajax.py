@@ -38,6 +38,6 @@ class CreateToken(CreateAPIView):
         login = request.data.get('login')
         pwd = request.data.get('pwd')
         user = auth.authenticate(request, username=login, password=pwd)
-        if user is not None:
-            token = Token.objects.get_or_create(user=user)
-            return Response({}, status=status.HTTP_400_BAD_REQUEST)
+        # if user is not None:
+        #     token = Token.objects.get_or_create(user=user)
+        #     return Response({}, status=status.HTTP_400_BAD_REQUEST)
