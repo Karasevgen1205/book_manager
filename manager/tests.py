@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
+from rest_framework import status
 from slugify import slugify
 from manager.models import Book
 from rest_framework.test import APITestCase
@@ -123,5 +124,5 @@ class RestTest(APITestCase):
             "login": self.login,
             "pwd": self.pwd
         }
-        response = self.client.post(url, data, content_type="")
-
+        response = self.client.post(url, data, content_type="aplication/json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
