@@ -160,7 +160,6 @@ class UpdateBook(View):
                 return render(request, "update_book.html", {"form":form, "slug":book.slug})
         return redirect('the-main-page')
 
-
     def post(self, request, slug):
         if request.user.is_authenticated:
             book = Book.objects.get(slug=slug)
