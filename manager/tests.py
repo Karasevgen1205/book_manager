@@ -109,7 +109,19 @@ class TestMyAppPlease(TestCase):
 
 class RestTest(APITestCase):
     def setUp(self):
-        self.user = User.objects.create_user(name='test_name')
+        self.login = 'test_name'
+        self.pwd = 'test_pwd'
+        self.user = User.objects.create_user(
+            name=self.login,
+            password=self.pwd
+        )
 
     def test_create_token(self):
-        pass
+        url=reverse("create-token")
+        self.client.post()
+        data = {
+            "login": self.login,
+            "pwd": self.pwd
+        }
+        response = self.client.post(url, data, content_type="")
+
