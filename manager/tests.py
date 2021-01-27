@@ -124,5 +124,5 @@ class RestTest(APITestCase):
             "login": self.login,
             "pwd": self.pwd
         }
-        response = self.client.post(url, data, content_type="aplication/json")
+        response = self.client.post(path=url, data=data, content_type="aplication/json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
