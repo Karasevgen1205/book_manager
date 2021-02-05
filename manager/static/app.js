@@ -37,11 +37,23 @@ console.log(fullAge)
 
 const a = 10
 const b = 5
+let c = 32
 
 console.log(a - b)
 console.log(a + b)
 console.log(a / b)
 console.log(a * b)
-console.log(currentYear++) // ++ добавляет при следуюещм вызове 1
+console.log(currentYear++) // ++ добавляет при следуюещм вызове 1 (можно в начале или в конце)
+console.log(currentYear--) // -- отнимает при следуюещм вызове 1 (можно в начале или в конце)
 console.log(currentYear)
+
+c = c + a
+c += a
+c -= a
+c /= a
+c *= a
+
+// 4 Типы данных
+
+
 
