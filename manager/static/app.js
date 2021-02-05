@@ -126,22 +126,46 @@
 
 // 8 Функции
 
-function calculateAge(year){
-    return 2021 - year
-}
+// function calculateAge(year){
+//     return 2021 - year
+// }
 
-const myAge = calculateAge(1991)
-console.log(myAge)
+// const myAge = calculateAge(1991)
+// console.log(myAge)
 
-console.log(calculateAge(1991))
-console.log(calculateAge(1999))
-console.log(calculateAge(2000))
+// console.log(calculateAge(1991))
+// console.log(calculateAge(1999))
+// console.log(calculateAge(2000))
+//
+// function logInfoAbout(name, year){
+//     const age = calculateAge(year)
+//
+//     if (age > 0){
+//         console.log('Human ' + name + ' have age ' + age)
+//     } else {
+//         console.log('This is unable')
+//     }
+// }
 
-function logInfoAbout(name, year){
-    const age = calculateAge(year)
-    console.log('Human ' + name + ' have age ' + age)
-}
+// logInfoAbout('Yauheni', 1991)
+// logInfoAbout('Yauheni', 2263)
 
-logInfoAbout('Yauheni', 1991)
+// 9 Массивы
+// const cars = new Array('Mazda', 'Audi', 'BMW') // Not good!
+// OR
+const cars = ['Mazda', 'Audi', 'BMW'] // Very good!
+console.log(cars)
 
- 
+console.log(cars[0])
+console.log(cars[1])
+console.log(cars[3])
+console.log(cars[2])
+console.log(cars.length)
+
+cars[0] = 'Porsche' // добавление на позицию "0"
+cars[3] = 'LADA' // добавление на позицию "3"
+cars[cars.length] = 'Lambo' // добавление в конец списка
+console.log(cars)
+
+
+
