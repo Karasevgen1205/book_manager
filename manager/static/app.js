@@ -29,3 +29,19 @@ alert(firstName + ' ' + lastName)
 
 // 3 Операторы
 
+let currentYear = 2020
+let birthYear = 1991
+
+let fullAge = currentYear - birthYear
+console.log(fullAge)
+
+const a = 10
+const b = 5
+
+console.log(a - b)
+console.log(a + b)
+console.log(a / b)
+console.log(a * b)
+console.log(currentYear++) // ++ добавляет при следуюещм вызове 1
+console.log(currentYear)
+
