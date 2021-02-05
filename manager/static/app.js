@@ -7,5 +7,8 @@ var name = 'Yauheni' // Устаревшая
 const LastName = 'Karas'
 let age = 26
 
+name = 'Yauhen'
+
+
 console.log(name)
 
