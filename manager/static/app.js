@@ -3,11 +3,15 @@
 
 alert('Are you sure?')
 
-var name = 'Yauheni' // Устаревшая
-const LastName = 'Karas'
-let age = 26
+// camalCase
+
+var name = 'Yauheni' // Устаревшая и глобальная
+const lastName = 'Karas'
+const isProgrammer = true // boolean
+let age = 26 // number
 
 name = 'Yauhen'
+age = 29
 
 
 console.log(name)
