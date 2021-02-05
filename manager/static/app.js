@@ -154,18 +154,20 @@
 // const cars = new Array('Mazda', 'Audi', 'BMW') // Not good!
 // OR
 const cars = ['Mazda', 'Audi', 'BMW'] // Very good!
-console.log(cars)
-
-console.log(cars[0])
-console.log(cars[1])
-console.log(cars[3])
-console.log(cars[2])
-console.log(cars.length)
+// console.log(cars)
+//
+// console.log(cars[0])
+// console.log(cars[1])
+// console.log(cars[3])
+// console.log(cars[2])
+// console.log(cars.length)
 
 cars[0] = 'Porsche' // добавление на позицию "0"
 cars[3] = 'LADA' // добавление на позицию "3"
 cars[cars.length] = 'Lambo' // добавление в конец списка
-console.log(cars)
+// console.log(cars)
+
+// 10 Циклы
 
 
 
